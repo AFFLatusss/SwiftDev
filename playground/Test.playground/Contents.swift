@@ -133,4 +133,49 @@ typealias validateFunction = ((String) -> Bool)?
 
 var validate: validateFunction
 
+func isBiggerThanFive(number:Int) -> Bool{
+    return number > 5 ? true : false
+}
 
+isBiggerThanFive(number: 6)
+
+var x = 3
+var y = 2
+
+var result = x + y
+
+protocol AddressDataSource{
+    func myAddress() -> String
+}
+
+class Neighbourhood {
+    let homes: [Home] = []
+    
+    func myAddress() -> String {
+        return "Manchester"
+    }
+}
+
+class Home {
+    let rooms: [Room] = []
+}
+
+class Room {
+    var colour = "blue"
+    var width = 12
+    var length = 32.5
+    
+    
+    
+    
+    func isOnSecondFloor () -> Bool{
+        return false
+    }
+    
+    func getArea() -> Int{
+        let area = self.width * Int(self.length)
+        
+        return area
+    }
+    
+}
