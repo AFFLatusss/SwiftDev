@@ -21,22 +21,20 @@ struct LogInView: View {
                 Form {
                     TextField("Email Address", text: $email)
                         .textFieldStyle(DefaultTextFieldStyle())
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
                     SecureField("Password", text: $password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
-                    Button {
-                        //Attempt to login
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color.blue)
-                            
-                            Text("Log In")
-                                .foregroundColor(Color.white)
-                                .bold()
-                        }
+                    TLButton(title: "Log In",
+                             background: .blue
+                    ){
+                        //attmept login
                     }
+                    .padding()
                 }
+                .offset(y:-50)
+                
                 // vraete account
                 VStack {
                     Text("New user?")
