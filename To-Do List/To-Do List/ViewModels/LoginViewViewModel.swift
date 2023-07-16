@@ -25,7 +25,6 @@ class LoginViewViewModel: ObservableObject {
         
         Auth.auth().signIn(withEmail: email, password: password)
         
-        print("Called")
     }
     
     private func validate() -> Bool {
