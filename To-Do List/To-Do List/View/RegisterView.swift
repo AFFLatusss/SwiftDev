@@ -14,36 +14,42 @@ struct RegisterView: View {
     
     
     var body: some View {
-        
-        VStack {
-            HeaderView(title: "Register",
-                       subtitle: "Be Organised",
-                       angle: -15,
-                       background: .purple)
-            
-            Form {
-                TextField("Full Name", text: $name)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .autocorrectionDisabled()
-                TextField("Email Address", text: $email)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                    .autocapitalization(.none)
-                    .autocorrectionDisabled()
-
-                SecureField ("Full Name", text: $password)
-                    .textFieldStyle(DefaultTextFieldStyle())
+            VStack {
+                HeaderView(title: "To Do List",
+                           subtitle: "Be Organised",
+                           angle: 15,
+                           background: .purple)
                 
-                TLButton(title: "Create Account",
-                         background: .indigo
-                ){
-                    //attempt register
-                }.padding()
-            }
-            .offset(y: -50)
+                Form {
+                    TextField("Full Name", text: $name)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                        .autocorrectionDisabled()
+                    TextField("Email Address", text: $email)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
+
+                    SecureField ("Full Name", text: $password)
+                        .textFieldStyle(DefaultTextFieldStyle())
+
+                    TLButton(title: "Create Account",
+                             background: .indigo
+                    ){
+                        //attempt register
+                    }.padding()
+                }
+                .offset(y: -95)
+                
+                VStack {
+                    Text("New user?")
+                    NavigationLink("Create an account",
+                                   destination: RegisterView())
+                }
+                .padding(.bottom, 50)
+                Spacer()
             
-            
-            Spacer()
         }
+        
         
         
 //        ZStack {
