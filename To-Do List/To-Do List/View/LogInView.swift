@@ -8,33 +8,44 @@
 import SwiftUI
 
 struct LogInView: View {
+    @State var email = ""
+    @State var password = ""
+    
     var body: some View {
-        VStack{
-            // header
-            ZStack{
-                RoundedRectangle(cornerRadius: 0)
-                    .foregroundColor(Color.pink)
-                    .rotationEffect(Angle(degrees: 15))
-                
-                VStack{
-                    Text("To Do List")
-                        .font(.system(size: 50))
-                        .foregroundColor(Color.white)
-                        .bold()
+        
+        NavigationView{
+            VStack{
+                // header
+                HeaderView()
+                // login Form
+                Form {
+                    TextField("Email Address", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    SecureField("Password", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    Text("Get things done")
-                        .font(.system(size:30))
-                        .foregroundColor(Color.white)
+                    Button {
+                        //Attempt to login
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color.blue)
+                            
+                            Text("Log In")
+                                .foregroundColor(Color.white)
+                                .bold()
+                        }
+                    }
                 }
+                // vraete account
+                VStack {
+                    Text("New user?")
+                    NavigationLink("Create an account",
+                                   destination: RegisterView())
                 }
-            .frame(width: UIScreen.main.bounds.width * 3,
-                   height:300)
-            .offset(y:-100)
-            // login Form
-            
-            // vraete account
-            
-            Spacer()
+                .padding(.bottom, 50)
+                Spacer()
+            }
         }
     }
 }
